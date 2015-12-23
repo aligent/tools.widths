@@ -41,7 +41,10 @@ $inuit-use-fractions: true !default;
             @for $inuit-widths-numerator from 1 to $inuit-widths-denominator {
 
                 // Build a class in the format `.u-3/4` or `.u-3-of-4`.
-                .#{$inuit-widths-namespace}u-#{$inuit-widths-numerator}#{$inuit-widths-delimiter}#{$inuit-widths-denominator}#{$inuit-widths-breakpoint} {
+                $class: #{$inuit-widths-namespace}u-#{$inuit-widths-numerator}#{$inuit-widths-delimiter}#{$inuit-widths-denominator}#{$inuit-widths-breakpoint};
+
+                .#{$class},
+                %#{$class} {
                     width: ($inuit-widths-numerator / $inuit-widths-denominator) * 100% !important;
                 }
 
