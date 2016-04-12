@@ -31,7 +31,10 @@ $inuit-use-fractions: true !default;
         // If we’re trying to make wholes, just spit a 100% width utility out
         // one time only.
         @if ($inuit-widths-denominator == 1) {
-            .#{$inuit-widths-namespace}u-1#{$inuit-widths-delimiter}1#{$inuit-widths-breakpoint} {
+            $class: #{$inuit-widths-namespace}u-1#{$inuit-widths-delimiter}1#{$inuit-widths-breakpoint};
+
+            .#{$class},
+            %#{$class}{
                 width: 100% !important;
             }
         } @else {
